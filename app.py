@@ -39,7 +39,7 @@ else:
     feature_columns = None
 
 # Define the prediction endpoint
-@app.post('/predict')
+@app.post('/predict_test')
 def predict(request: PredictRequest):
     try:
         if pipeline is None or feature_columns is None:
@@ -66,7 +66,7 @@ def predict(request: PredictRequest):
         raise HTTPException(status_code=400, detail=str(e))
 
 # Define the training endpoint
-@app.post('/train')
+@app.post('/train_test')
 async def train(file: UploadFile = File(...), feature_cols: str = Form(...)):
     try:
         # Read the uploaded file
