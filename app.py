@@ -138,6 +138,10 @@ async def train(file: UploadFile = File(...), feature_cols: str = Form(...)):
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
 
+@app.get("/hello")
+async def hello():
+    return {"message": "Hi, this is ChatGPT"}
+
 # Run the app
 if __name__ == "__main__":
     import uvicorn
